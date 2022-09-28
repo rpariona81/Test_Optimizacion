@@ -42,7 +42,7 @@ public class AtrOptimizacionApplication implements CommandLineRunner {
 	private void cboTipoEntidad() {
 		List<TipoEntidad> tipoEntidades = repoTipoEntidad.findAll();
 		for (TipoEntidad cat : tipoEntidades) {
-			System.out.println(cat.getTipo_entidad()+"-"+cat.getCodtipo_entidad());
+			System.out.println(cat.getCodtipo_entidad()+"-"+cat.getTipo_entidad());
 		}
 	}
 }
