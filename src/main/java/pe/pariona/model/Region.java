@@ -127,6 +127,6 @@ public class Region {
 	
 	@Override
 	public String toString() {
-		return "Region [codregion=" + codregion + ", region=" + region + ", departamento=" + departamento + "]";
+		return "Region [codregion=" + codregion + ", region=" + region + ", departamento=" + departamento.toUpperCase() + "]";
 	}
 }
