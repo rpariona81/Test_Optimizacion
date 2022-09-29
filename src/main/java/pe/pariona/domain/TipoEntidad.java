@@ -1,4 +1,4 @@
-package pe.pariona.model;
+package pe.pariona.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

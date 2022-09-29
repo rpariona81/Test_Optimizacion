@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import pe.pariona.model.Region;
+import pe.pariona.domain.Region;
 
 public interface RegionRepository extends JpaRepository<Region, Integer>{
 	

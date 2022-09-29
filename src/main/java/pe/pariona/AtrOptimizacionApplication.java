@@ -7,8 +7,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import pe.pariona.model.Region;
-import pe.pariona.model.TipoEntidad;
+import pe.pariona.domain.Entidad;
+import pe.pariona.domain.Region;
+import pe.pariona.domain.TipoEntidad;
+import pe.pariona.repository.EntidadRepository;
 import pe.pariona.repository.RegionRepository;
 import pe.pariona.repository.TipoEntidadRepository;
 
@@ -19,7 +21,10 @@ public class AtrOptimizacionApplication implements CommandLineRunner {
 	private RegionRepository repoRegiones;
 	
 	@Autowired
-	private TipoEntidadRepository repoTipoEntidad; 
+	private TipoEntidadRepository repoTipoEntidad;
+	
+	@Autowired
+	private EntidadRepository repoEntidad; 
 	
 	public static void main(String[] args) {
 		SpringApplication.run(AtrOptimizacionApplication.class, args);
@@ -28,6 +33,7 @@ public class AtrOptimizacionApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Funciona...");
+		cboEntidades();
 		cboRegiones();
 		cboTipoEntidad();
 	}
@@ -43,6 +49,13 @@ public class AtrOptimizacionApplication implements CommandLineRunner {
 		List<TipoEntidad> tipoEntidades = repoTipoEntidad.findAll();
 		for (TipoEntidad cat : tipoEntidades) {
 			System.out.println(cat.getCodtipo_entidad()+"-"+cat.getTipo_entidad());
+		}
+	}
+	
+	private void cboEntidades() {
+		List<Entidad> entidades = repoEntidad.findAll();
+		for (Entidad cat : entidades) {
+			System.out.println(cat.getCodentidad()+"-"+cat.getRegion().getRegion()+"-"+cat.getTitulo_entidad());
 		}
 	}
 }
